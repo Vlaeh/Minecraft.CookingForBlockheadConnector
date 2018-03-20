@@ -26,8 +26,6 @@ minecraft {
 }
 
 dependencies {
-    //compile "net.blay09.mods:CookingForBlockheads:5.3.17"
-    // Can be downloaded from http://jenkins.blay09.net/job/Cooking%20for%20Blockheads%201.11/lastSuccessfulBuild/artifact/build/libs/CookingForBlockheads_1.11.2-5.3.27.jar
     compile files('CookingForBlockheads_1.11.2-5.3.27.jar')
 }
 

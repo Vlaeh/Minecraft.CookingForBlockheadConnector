@@ -1,11 +1,11 @@
 package vlaeh.minecraft.forge.cookingforblockheadsconnector.block;
 
+import net.blay09.mods.cookingforblockheads.CookingForBlockheads;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -30,7 +30,7 @@ public class BlockKitchenFloorConnector extends BlockContainer {
 		setUnlocalizedName(registryName.toString());
 		setRegistryName(registryName.toString());
 		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.FOOD);
+		setCreativeTab(CookingForBlockheads.creativeTab);
 		setHardness(5f);
 		setResistance(10f);
 	}
