@@ -1,0 +1,5 @@
+
+tile.cookingforblockheadsconnector:kitchen_floor_connector.name=Kitchen Floor Connector
+
+tooltip.cookingforblockheadsconnector:multiblockKitchen=Multiblock Kitchen Connector
+tooltip.cookingforblockheadsconnector:kitchen_floor_connector.description=Connect inventories to kitchen.

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "cookingforblockheadsconnector",
+  "name": "Cooking For Blockheads Connector",
+  "description": "Add inventory connector block Cooking For Blockhead kitchen",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Vlaeh"],
+  "credits": "The Forge and FML guys, for making great job.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
