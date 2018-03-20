@@ -9,8 +9,11 @@ Download release jar file and move to the "mods" directory of Minecraft.
 
 ## Build:
 
-Clone git repository
-Download CookingForBlockheads_1.12.1-6.3.17.jar pluggin
+Clone this git repository
+
+Download CookingForBlockheads_1.12.1-6.3.17.jar pluggin (https://github.com/blay09/CookingForBlockheads)
+
 Run gradlew setupDecompWorkspace
+
 Run gradlew build
 
