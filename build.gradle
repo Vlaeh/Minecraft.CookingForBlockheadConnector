@@ -1,34 +1,33 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply from: 'dependencies.gradle'
 
-
-version = "1.0-1.9-1.11"
-group = "vlaeh.minecraft.forge.cookingforblockheadsconnector" 
-archivesBaseName = "CookingForBlockheadsConnector"
-
-sourceCompatibility = targetCompatibility = "1.6" // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
-    sourceCompatibility = targetCompatibility = "1.6"
+    sourceCompatibility = targetCompatibility = '1.8'
 }
+
+
+version = major_version + "." + minor_version
+group = "vlaeh.minecraft.forge"
+archivesBaseName = mod_name + "-" + version + "-" + minecraft_version
 
 minecraft {
-    version = "1.11.2-latest"
+    version = minecraft_version + "-" + forge_version
     runDir = "run"
-    mappings = "snapshot_20170504"
-}
-
-dependencies {
-    //compile "net.blay09.mods:CookingForBlockheads:5.3.17"
-    // Can be downloaded from http://jenkins.blay09.net/job/Cooking%20for%20Blockheads%201.11/lastSuccessfulBuild/artifact/build/libs/CookingForBlockheads_1.11.2-5.3.27.jar
-    compile files('CookingForBlockheads_1.11.2-5.3.27.jar')
+    //useDepAts = false
+    mappings = mappings_version
 }
 
 processResources {
@@ -37,7 +36,7 @@ processResources {
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
         
     from(sourceSets.main.resources.srcDirs) {

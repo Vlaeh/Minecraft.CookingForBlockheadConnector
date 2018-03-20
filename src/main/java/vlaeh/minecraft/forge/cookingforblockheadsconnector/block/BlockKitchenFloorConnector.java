@@ -1,12 +1,12 @@
 package vlaeh.minecraft.forge.cookingforblockheadsconnector.block;
 
+import net.blay09.mods.cookingforblockheads.CookingForBlockheads;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
@@ -28,9 +28,8 @@ public class BlockKitchenFloorConnector extends BlockContainer {
 		super(Material.ROCK);
 
 		setUnlocalizedName(registryName.toString());
-		setRegistryName(registryName.toString());
 		setSoundType(SoundType.STONE);
-		setCreativeTab(CreativeTabs.FOOD);
+		setCreativeTab(CookingForBlockheads.creativeTab);
 		setHardness(5f);
 		setResistance(10f);
 	}
@@ -47,8 +46,8 @@ public class BlockKitchenFloorConnector extends BlockContainer {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		super.addInformation(stack, player, tooltip, advanced);
+	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag advanced) {
+		super.addInformation(stack, world, tooltip, advanced);
 		tooltip.add(TextFormatting.YELLOW + I18n.format("tooltip." + CookingForBlockheadsConnector.MODID + ":multiblockKitchen"));
 		for (String s : I18n.format("tooltip." + getRegistryName() + ".description").split("\\\\n")) {
 			tooltip.add(TextFormatting.GRAY + s);

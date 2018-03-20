@@ -1,0 +1,9 @@
+[
+    {
+    "name": "PLANKS",
+    "ingredient": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    }
+  }
+]

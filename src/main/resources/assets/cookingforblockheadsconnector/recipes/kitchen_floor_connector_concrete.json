@@ -1,0 +1,25 @@
+{
+  "result": {
+    "item": "cookingforblockheadsconnector:kitchen_floor_connector",
+    "count": 1
+  },
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "B W",
+    " P ",
+    "W B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:concrete",
+      "data": 15
+    },
+    "P": {
+      "item": "#PLANKS"
+    },
+    "W": {
+      "item": "minecraft:concrete",
+      "data": 0
+    }
+  }
+}

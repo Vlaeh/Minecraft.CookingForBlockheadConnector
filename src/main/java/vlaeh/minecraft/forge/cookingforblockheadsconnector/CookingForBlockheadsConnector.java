@@ -1,45 +1,44 @@
 package vlaeh.minecraft.forge.cookingforblockheadsconnector;
 
-import net.minecraftforge.common.config.Configuration;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vlaeh.minecraft.forge.cookingforblockheadsconnector.block.ModBlocks;
 
+@Mod.EventBusSubscriber(modid = CookingForBlockheadsConnector.MODID)
 @Mod(modid = CookingForBlockheadsConnector.MODID,
      version = CookingForBlockheadsConnector.VERSION,
      name = CookingForBlockheadsConnector.NAME,
      acceptableRemoteVersions = "*",
-     acceptedMinecraftVersions = "[1.9,1.12)",
-     dependencies="required-after:cookingforblockheads@[3.1.16,)")
+     acceptedMinecraftVersions = "[1.12,1.13)",
+     dependencies="required-after:cookingforblockheads@[6.3.1,)")
 public class CookingForBlockheadsConnector {
     public static final String MODID = "cookingforblockheadsconnector";
     public static final String VERSION = "1.0";
     public static final String NAME = "Cooking For Blockheads Connector";
 
-    public static Configuration config;
-    public static boolean printTimestamp = true;
-    public static boolean printDayPhases = true;
-    public static boolean printMoonPhases = true;
-
-    @Mod.Instance
-    public static CookingForBlockheadsConnector instance;
-
-    @SidedProxy(clientSide = "vlaeh.minecraft.forge.cookingforblockheadsconnector.client.ClientProxy",
-                serverSide = "vlaeh.minecraft.forge.cookingforblockheadsconnector.CommonProxy")
-    public static CommonProxy proxy;
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        ModBlocks.registerBlocks();
+        ModBlocks.registerTileEntities();
     }
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-        proxy.registerModels();
-        ModBlocks.registerRecipes();
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        ModBlocks.registerBlocks(event.getRegistry());
+    }
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        ModBlocks.registerItemBlocks(event.getRegistry());
+    }
+
+    @SubscribeEvent
+    public static void registerModels(ModelRegistryEvent event) {
+        ModBlocks.registerModels();
     }
 
 }
