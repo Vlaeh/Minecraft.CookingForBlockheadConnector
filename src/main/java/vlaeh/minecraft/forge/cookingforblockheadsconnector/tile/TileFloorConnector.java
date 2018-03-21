@@ -30,11 +30,10 @@ public class TileFloorConnector extends TileEntity {
             final BlockPos position = pos.offset(EnumFacing.UP);
             final TileEntity tileEntity = world.getTileEntity(position);
             if (tileEntity != null) {
-                if (tileEntity.getCapability(CapabilityKitchenItemProvider.CAPABILITY, null) != null)
-                    itemProvider.setItemHandler(emptyItemHandler);
-                else if (tileEntity.getCapability(CapabilityKitchenSmeltingProvider.CAPABILITY, null) != null)
-                    itemProvider.setItemHandler(emptyItemHandler);
-                else {
+                if (tileEntity.hasCapability(CapabilityKitchenItemProvider.CAPABILITY, null)
+                    || tileEntity.hasCapability(CapabilityKitchenSmeltingProvider.CAPABILITY, null)) {
+                    itemProvider.setItemHandler(emptyItemHandler); // avoid scanning twice CookingForBlockheads blocks
+                } else {
                     final IItemHandler c = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
                     if (c != null)
                         itemProvider.setItemHandler(c);
