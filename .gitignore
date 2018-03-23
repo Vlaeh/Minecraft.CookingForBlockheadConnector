@@ -23,6 +23,10 @@ hs_err_pid*
 
 # Forge build files
 .gradle/
-Minecraft.CookingForBlockheadConnector.*
+Minecraft.CookingForBlockheadConnector*
 build/
 run/
+/bin/
+.classpath
+.project
+.settings/

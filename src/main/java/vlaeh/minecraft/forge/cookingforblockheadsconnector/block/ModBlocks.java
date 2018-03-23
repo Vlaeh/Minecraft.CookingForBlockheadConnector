@@ -17,15 +17,12 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder(BlockKitchenFloorConnector.name)
     public static final Block floorConnector = Blocks.STONE;
 
-
     public static void registerBlocks(IForgeRegistry<Block> registry) {
-        registry.registerAll(
-                new BlockKitchenFloorConnector().setRegistryName(BlockKitchenFloorConnector.name));
+        registry.registerAll(new BlockKitchenFloorConnector().setRegistryName(BlockKitchenFloorConnector.name));
     }
 
     public static void registerItemBlocks(IForgeRegistry<Item> registry) {
-        registry.registerAll(
-                new ItemBlock(floorConnector).setRegistryName(BlockKitchenFloorConnector.name));
+        registry.registerAll(new ItemBlock(floorConnector).setRegistryName(BlockKitchenFloorConnector.name));
     }
 
     public static void registerTileEntities() {
@@ -33,8 +30,8 @@ public class ModBlocks {
     }
 
     public static void registerModels() {
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(floorConnector), 0, new ModelResourceLocation(BlockKitchenFloorConnector.registryName, "inventory"));
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(floorConnector), 0,
+                new ModelResourceLocation(BlockKitchenFloorConnector.registryName, "inventory"));
     }
 
 }
-
