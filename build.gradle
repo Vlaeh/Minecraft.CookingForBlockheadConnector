@@ -21,7 +21,7 @@ compileJava {
 
 version = major_version + "." + minor_version
 group = "vlaeh.minecraft.forge"
-archivesBaseName = mod_name + "-" + version + "-" + minecraft_version
+archivesBaseName = mod_name + "-" + minecraft_version
 
 minecraft {
     version = minecraft_version + "-" + forge_version
