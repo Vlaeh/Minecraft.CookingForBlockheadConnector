@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 
 public class TileFloorConnector extends TileEntity {
 
-    private final ItemStackHandler emptyItemHandler = new ItemStackHandler(0) {};
+    private static final ItemStackHandler emptyItemHandler = new ItemStackHandler(0) {};
     private final MyKitchenItemProvider itemProvider = new MyKitchenItemProvider(emptyItemHandler);
 
     @Override
@@ -38,8 +38,6 @@ public class TileFloorConnector extends TileEntity {
                     || tileEntity.hasCapability(CapabilityKitchenSmeltingProvider.CAPABILITY, null)
                     || tileEntity.hasCapability(CapabilityKitchenConnector.CAPABILITY, null)) {
                     itemProvider.setItemHandler(emptyItemHandler); // avoid scanning twice CookingForBlockheads blocks
-                } else if (tileEntity instanceof IItemHandler) {
-                    itemProvider.setItemHandler((IItemHandler) tileEntity);
                 } else {
                     final IItemHandler c = tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
                     if (c != null)
